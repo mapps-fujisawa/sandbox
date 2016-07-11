@@ -1,0 +1,3 @@
+http://perldoc.jp/func/use
+http://perldoc.jp/docs/perl/5.20.1/perlmod.pod
+http://perldoc.jp/func/require
