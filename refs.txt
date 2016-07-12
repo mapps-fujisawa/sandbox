@@ -1,3 +1,6 @@
 http://perldoc.jp/func/use
 http://perldoc.jp/docs/perl/5.20.1/perlmod.pod
 http://perldoc.jp/func/require
+http://perldoc.jp/variable/$%7B%5EWARNING_BITS%7D
+http://perldoc.jp/docs/perl/5.8.1/warnings.pod
+http://search.cpan.org/~mlehmann/common-sense-3.74/sense.pod
