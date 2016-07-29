@@ -10,3 +10,8 @@ http://perldoc.jp/func/quotemeta
 http://perldoc.perl.org/Cwd.html
 http://d.hatena.ne.jp/perlcodesample/20100426/1270894115
 
+http://perldoc.jp/docs/perl/5.8.8/perlobj.pod
+http://perldoc.jp/docs/perl/5.8.0/AutoLoader.pod
+http://perldoc.perl.org/Exporter.html
+http://perldoc.jp/func/caller
+
