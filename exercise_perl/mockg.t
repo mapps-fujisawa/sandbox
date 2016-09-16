@@ -22,11 +22,18 @@ subtest 'called foo' => sub {
 
     my $guard = mock_guard $obj => {
         foo => 'hoge',
-        bar => sub {die 'fault'},
+        bar => sub { die 'fault' },
+    };
+
+    subtest 'Dies during transaction' => sub {
+        throws_ok {
+            $obj->some_method(0);
+        }
+        qr/fault/;
     };
 
     is $obj->some_method(1), 'hoge';
-    eval {$obj->some_method(0)};
+    eval { $obj->some_method(0) };
     like $@, '/fault/';
     is $guard->call_count( $obj, 'foo' ), 1;
     is $guard->call_count( $obj, 'bar' ), 1;
