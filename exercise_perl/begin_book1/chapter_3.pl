@@ -54,8 +54,15 @@ print "\n";
 =pod
 Practice Loop
 =cut
+my @langs = qw{Ruby Python Java C/C++ Perl LISP};
+foreach my $lang (@langs) {
+    print $lang
+}
+print "\n";
 
-
-
+foreach (@langs) {
+    print $_;
+}
+print "\n";
 
 
