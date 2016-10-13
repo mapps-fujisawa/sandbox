@@ -1,0 +1,7 @@
+# mojolicious guide
+
+## tutorial
+http://mojolicious.org/perldoc/Mojolicious/Guides/Tutorial
+
+## cookbook
+http://mojolicious.org/perldoc/Mojolicious/Guides/Cookbook

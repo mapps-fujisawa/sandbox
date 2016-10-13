@@ -78,6 +78,7 @@ requires 'Server::Starter';
 requires 'SQL::Maker';
 requires 'Starlet';
 requires 'Starman';
+requires 'Statistics::Lite';
 requires 'String::CamelCase';
 requires 'String::Random';
 requires 'TAP::Formatter::JUnit';
