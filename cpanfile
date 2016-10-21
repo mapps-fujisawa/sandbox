@@ -75,6 +75,7 @@ requires 'Parallel::Prefork';
 requires 'Role::Tiny';
 requires 'Router::Simple';
 requires 'Server::Starter';
+requires 'Spreadsheet::WriteExcel';
 requires 'SQL::Maker';
 requires 'Starlet';
 requires 'Starman';
