@@ -1,3 +1,4 @@
 cpanfile.snapshot
 local
 tags
+node_modules/
