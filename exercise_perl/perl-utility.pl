@@ -42,4 +42,21 @@ print("\n");
 use List::Util qw( reduce );
 
 print Dumper reduce { push @{ $a->{ length($b) } }, $b; $a }{}, @fruits;
+print("\n");
+
+#=pod
+#  eval
+#  case1: error trap mechanism
+#=cut
+eval { my $average = 10 / 0 };
+print "Devide error: : $@" if $@;
+
+#=pod
+#  eval
+#  case2: dynamic code
+#=cut
+foreach my $oprt qw( + - / * ) {
+    my $result = eval "2 $oprt 2";
+    print "2 $oprt 2 is $result \n";
+}
 
