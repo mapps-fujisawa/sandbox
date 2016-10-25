@@ -68,6 +68,7 @@ requires 'Net::APNS::Persistent';
 requires 'Net::OAuth2' => '== 0.07';
 requires 'Net::Server::SS::PreFork';
 requires 'Number::Format';
+requires 'Params::Validate';
 requires 'Plack';
 requires 'Plack::Middleware::ReverseProxy';
 requires 'Parallel::ForkManager';
