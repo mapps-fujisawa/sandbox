@@ -7,10 +7,14 @@ use List::Util qw(
   shuffle uniq uniqnum uniqstr
 );
 
+
+# reduce
 my $foo;
 $foo = reduce { $a > $b ? $a : $b } 1 .. 10;
 warn $foo;
 $foo = reduce { $a gt $b ? $a : $b } 'A' .. 'Z';
 warn $foo;
 
-
+# any
+my $flg = any { length > 5 } qw/ apple lemon strawberry /;
+print $flg;
