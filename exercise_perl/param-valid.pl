@@ -18,16 +18,27 @@ sub foo {
 }
 
 sub chk_defined {
-warn 1;
+    warn 1;
     my $args = validate(
         @_,
         {
-            password => { type => SCALAR, },
-            password_algorithm =>
-              { type => SCALAR | UNDEF, default => 'sha256' },
+            password           => { type => SCALAR, },
+            password_algorithm => {
+                type      => SCALAR,
+                default   => 'sha256',
+                optional  => 1,
+                callbacks => {
+                    'is valid password_algorithm' => sub {
+                        return 1 if $_[0] eq 'sha256';
+                        die "$_[0] is not a valid algorithm";
+                    },
+                },
+            },
         }
     );
-    my $algo = $args->{password_algorithm} ||= 'sha256';
+
+    #my $algo = $args->{password_algorithm} ||= 'sha256';
+    my $algo = $args->{password_algorithm};
     warn Dumper $algo;
 
     #    warn Dumper $args->{password};
@@ -46,6 +57,7 @@ my %hash = ( hoge => 100, fuga => 200 );
 Case:2
 =cut
 
-my %params = ( password => 'hogehoge', password_algorithm => undef );
-chk_defined(\%params);
+#my %params = ( password => 'hogehoge' );
+my %params = ( password => 'hogehoge', password_algorithm => 'md5' );
+chk_defined( \%params );
 
