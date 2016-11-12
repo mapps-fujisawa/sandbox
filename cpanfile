@@ -57,6 +57,7 @@ requires 'LWP::Protocol::https';
 requires 'Math::Random::Secure';
 requires 'MIME::Base64::URLSafe';
 requires 'Mojolicious';
+requires 'Mojolicious::Lite';
 requires 'MojoX::Log::Log4perl::Tiny';
 requires 'MojoX::Renderer::JSON::XS';
 requires 'MojoX::Renderer::Xslate';
