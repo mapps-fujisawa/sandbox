@@ -1,38 +1,34 @@
-use Data::Dumper;
+use common::sense;
 use URI;
-use URI::Escape;
+use Data::Dumper;
 
-my $path = 'hoge';
-my $query = '{}';
-#warn Dumper redirect_mobile_app_uri($path, $query);
+#my $uri = URI->new('http://www.example.com/foo/bar/baz?qux=123&hoge=123&fuga=999');
+my $uri = URI->new('/foo/bar/baz?hoge=123');
+warn $uri->as_string;
 
-my $url = '%2Fhome%3Fredirect_mobile_app%3Dsurveyon%253A%252F%252Fsurveyon.com%252Fhome%26utm_campaign%3DNPS_notification_mail%26utm_content%3Dnotification%26utm_medium%3Dmail_button%26utm_source%3Dsurveyon';
-warn Dumper extract_url_scheme($url)->{redirect_mobile_app};
+#warn defined($uri->authority), "\n";
+#warn $uri->authority, "\n";
+#warn defined($uri->scheme), "\n";
+#warn $uri->scheme, "\n";
 
-sub redirect_mobile_app_uri {
-    my ($path, $query) = @_;
-    my $scheme = 'surveyon://surveyon.com';
+#my $hoge = defined($uri->scheme) || defined($uri->authority), "\n";
+#warn $hoge;
 
-#    $query ||= {};
-    $path = '/' . $path if $path =~ /^[^\/]\w/m;
+my %query_hash = $uri->query_form;
+delete($query_hash{hoge});
 
-    my $uri = URI->new;
-#    $uri->scheme('');
-#    $uri->host();
-    $uri->path($scheme.$path);
-    $uri->query_form($query);
+# warning single hash could not be deleted
+$uri->query_form(%query_hash);
+$uri->query_form();
+$uri->query_form(());
 
-    $uri;
-    #create_uri($scheme, $path, $query);
-}
+# this is hash
+#%hash = ( a => 1, b => 2);
 
-sub extract_url_scheme {
-    my $url = shift;
+# this is hash reference
+#$hash_ref = { };
 
-    my $str = uri_unescape($url);
-    my $uri = URI->new($str);
-    my %query = $uri->query_form;
+$uri->query_form({ });
 
-    \%query;
-    #\%query->{redirect_mobile_app};
-}
+warn $uri->as_string;
+
